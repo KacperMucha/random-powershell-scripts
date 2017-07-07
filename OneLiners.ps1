@@ -1,2 +1,2 @@
 # list api versions for specific azure resource type
-(Get-AzureRmResourceProvider | %{$_.ResourceTypes | ? {$_.ResourceTypeName -eq 'virtualMachines'}}).ApiVersions
+(Get-AzureRmResourceProvider | % {$apiVersions = $null; $provNamespace = $_.ProviderNamespace; $apiVersions = ($_.ResourceTypes | ? {$_.ResourceTypeName -eq 'namespaces'}).ApiVersions; if ($apiVersions) {$provNamespace; $apiVersions}})
