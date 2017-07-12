@@ -58,7 +58,7 @@ function Find-AzureRmApplicableNsgRule {
                     $subnetNetworkSecurityGroupName = ($subnetConfig.NetworkSecurityGroup.Id -split '/')[-1]
                     $subnetNetworkSecurityGroupResourceGroupName = ($subnetConfig.NetworkSecurityGroup.Id -split '/')[4]
 
-                    if ($subnetNetworkSecurityGroupResourceGroupName) {
+                    if ($subnetNetworkSecurityGroupName) {
                         $subnetNetworkSecurityGroupProperties = @{
                             Name              = $subnetNetworkSecurityGroupName
                             ResourceGroupName = $subnetNetworkSecurityGroupResourceGroupName
